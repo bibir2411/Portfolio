@@ -33,7 +33,6 @@
         .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background: #f472b6; transition: 0.3s; }
         .nav-link:hover::after { width: 100%; }
 
-        /* Style pour le menu email */
         #email-options { display: none; }
         #email-options.active { display: block; animation: fadeIn 0.3s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -281,7 +280,7 @@
     <section id="veille" class="py-40 px-6 bg-black/50">
         <div class="max-w-5xl mx-auto">
             <h2 class="big-title mb-12 italic text-gradient text-center" data-aos="fade-up">Veille Technologique</h2>
-            <div class="glass p-12 rounded-[4rem] border-2 border-blue-500/30">
+            <div class="glass p-12 rounded-[4rem] border-2 border-blue-500/30" data-aos="zoom-in">
                 <div class="flex items-center gap-6 mb-8">
                     <i class="fas fa-flag-checkered text-4xl text-blue-500"></i>
                     <h3 class="text-2xl font-black italic uppercase">L’utilisation des réseaux informatique dans les stands de Formule 1</h3>
@@ -289,9 +288,14 @@
                 <p class="text-gray-300 italic leading-relaxed mb-8">
                     Les paddocks de Formule 1 sont de véritables centres de contrôle technologique. Chaque écurie dispose d’un réseau informatique local permettant d’analyser les données de la voiture, de communiquer avec les ingénieurs, et de prendre des décisions stratégiques rapidement. Des entreprises comme Cisco, partenaire de McLaren, fournissent des solutions réseau performantes pour répondre à ces besoins.
                 </p>
-                <div class="bg-blue-500/10 border-l-4 border-blue-500 p-6 rounded-xl">
+                <div class="bg-blue-500/10 border-l-4 border-blue-500 p-6 rounded-xl mb-12">
                     <h4 class="text-blue-400 font-black text-xs uppercase tracking-widest mb-2">Problématique</h4>
                     <p class="text-lg font-bold italic text-white">Comment les réseaux informatique permettent-ils aux équipes de Formule 1 de gérer les courses en temps réel ?</p>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="https://drive.google.com/file/d/1UGgi5G0M0CbuyN4jmp1woTZpk-wM4OA0/view?usp=sharing" target="_blank" class="bg-white/5 border border-white/10 px-8 py-4 rounded-xl text-[10px] font-black uppercase hover:bg-pink-500/20 transition duration-300">Doc 1</a>
+                    <a href="#" target="_blank" class="bg-white/5 border border-white/10 px-8 py-4 rounded-xl text-[10px] font-black uppercase hover:bg-pink-500/20 transition duration-300">Doc 2</a>
                 </div>
             </div>
         </div>
@@ -335,7 +339,6 @@
     <script> 
         AOS.init({ duration: 1000, once: true }); 
 
-        // Fonction pour afficher/cacher le menu email
         function toggleEmailMenu() {
             const menu = document.getElementById('email-options');
             menu.classList.toggle('active');
