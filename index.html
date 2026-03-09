@@ -13,7 +13,6 @@
         html { scroll-behavior: smooth; scroll-padding-top: 80px; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #030303; color: white; overflow-x: hidden; position: relative; }
         
-        /* --- FOND ANIMÉ ROSE/VIOLET/BLEU --- */
         .background-animated-mix { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; background: #030303; }
         .particle { position: absolute; border-radius: 50%; opacity: 0.12; filter: blur(40px); animation: float-everywhere 30s infinite linear; }
         @keyframes float-everywhere {
@@ -33,6 +32,11 @@
         .nav-link { font-size: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.2em; position: relative; }
         .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background: #f472b6; transition: 0.3s; }
         .nav-link:hover::after { width: 100%; }
+
+        /* Style pour le menu email */
+        #email-options { display: none; }
+        #email-options.active { display: block; animation: fadeIn 0.3s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -80,7 +84,7 @@
                 <p class="text-pink-500 font-bold uppercase tracking-widest text-sm mb-6">Étudiante en BTS SIO SISR • Paris (75015)</p>
                 <p class="text-lg text-gray-200 leading-relaxed italic mb-6"> Je suis une étudiante passionnée au lycée <strong>Louis Armand</strong>. Au cours de ma formation, je développe des compétences techniques solides dans la conception, le déploiement et la maintenance d’infrastructures informatiques.</p>
                 <p class="text-lg text-gray-200 leading-relaxed italic mb-10">Mon objectif est de devenir <strong>administrateur systèmes et réseaux</strong>, puis évoluer vers la <strong>cybersécurité</strong>. Je m'appuie sur la rigueur, la logique et l'autonomie.</p>
-                <a href="https://drive.google.com/file/d/1Kg4st2M9pfOx2YIfsV9abnfquBRlbzQE/view?usp=sharing" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-black text-xs uppercase tracking-widest px-8 py-4 rounded-xl transition duration-300 shadow-lg shadow-blue-900/40 inline-flex items-center">
+                <a href="https://drive.google.com/file/d/1Kg4st2M9pfOx2YIfsV9abnfquBRlbzQE/preview" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-black text-xs uppercase tracking-widest px-8 py-4 rounded-xl transition duration-300 shadow-lg shadow-blue-900/40 inline-flex items-center">
                     <i class="fas fa-file-download mr-3 text-lg"></i> Télécharger mon CV
                 </a>
             </div>
@@ -261,38 +265,84 @@
             <h3 class="text-4xl font-black italic mb-6">Projet : Stage AND&co</h3>
             <p class="text-pink-500 font-bold text-[10px] uppercase mb-6 tracking-widest italic">Mai 2025 | Technicien Réseaux</p>
             <p class="text-gray-400 italic mb-10 leading-relaxed text-lg">Mise en place et supervision d’un réseau informatique pour compétitions de Taekwondo : configuration IP, switchs, NAS et gestion des incidents.</p>
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-10">
+                <a href="https://drive.google.com/file/d/1GgIrGqBJderHy-ZAkAbeT7RKxoMUumUU/preview" target="_blank" class="bg-white/5 border border-white/10 px-8 py-4 rounded-xl text-[10px] font-black uppercase hover:bg-pink-500/20 transition duration-300">Rapport de stage</a>
+                <a href="https://drive.google.com/file/d/1nDuPbsLmQ1UR3sxNQOdxwh1Ed3loTxij/preview" target="_blank" class="bg-white/5 border border-white/10 px-8 py-4 rounded-xl text-[10px] font-black uppercase hover:bg-pink-500/20 transition duration-300">Tableau de synthèse</a>
+            </div>
+
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="https://drive.google.com/file/d/1GgIrGqBJderHy-ZAkAbeT7RKxoMUumUU/view?usp=sharing" class="bg-white/5 border border-white/10 px-8 py-4 rounded-xl text-[10px] font-black uppercase hover:bg-pink-500/20 transition duration-300">Rapport de stage</a>
-                <a href="https://drive.google.com/file/d/1nDuPbsLmQ1UR3sxNQOdxwh1Ed3loTxij/view?usp=sharing" class="bg-white/5 border border-white/10 px-8 py-4 rounded-xl text-[10px] font-black uppercase hover:bg-pink-500/20 transition duration-300">Tableau de synthèse</a>
+                <a href="#" target="_blank" class="bg-white/5 border border-blue-500/30 px-8 py-4 rounded-xl text-[10px] font-black uppercase hover:bg-blue-500/20 transition duration-300">Convention de stage 1ère année</a>
+                <a href="#" target="_blank" class="bg-white/5 border border-blue-500/30 px-8 py-4 rounded-xl text-[10px] font-black uppercase hover:bg-blue-500/20 transition duration-300">Convention de stage 2ème année</a>
             </div>
         </div>
     </section>
 
-    <section id="veille" class="py-40 px-6 bg-black/50 text-center">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="big-title mb-12 italic text-gradient" data-aos="fade-up">Veille</h2>
-            <div class="glass p-16 rounded-[4rem] border-dashed border-2 border-blue-500/30">
-                <i class="fas fa-microchip text-4xl text-blue-500 mb-8"></i>
-                <p class="text-xl text-gray-400 italic leading-relaxed">Cybersécurité & IA : Suivi des vulnérabilités via l'ANSSI, LeMagIT et Cyberveille.</p>
+    <section id="veille" class="py-40 px-6 bg-black/50">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="big-title mb-12 italic text-gradient text-center" data-aos="fade-up">Veille Technologique</h2>
+            <div class="glass p-12 rounded-[4rem] border-2 border-blue-500/30">
+                <div class="flex items-center gap-6 mb-8">
+                    <i class="fas fa-flag-checkered text-4xl text-blue-500"></i>
+                    <h3 class="text-2xl font-black italic uppercase">L’utilisation des réseaux informatique dans les stands de Formule 1</h3>
+                </div>
+                <p class="text-gray-300 italic leading-relaxed mb-8">
+                    Les paddocks de Formule 1 sont de véritables centres de contrôle technologique. Chaque écurie dispose d’un réseau informatique local permettant d’analyser les données de la voiture, de communiquer avec les ingénieurs, et de prendre des décisions stratégiques rapidement. Des entreprises comme Cisco, partenaire de McLaren, fournissent des solutions réseau performantes pour répondre à ces besoins.
+                </p>
+                <div class="bg-blue-500/10 border-l-4 border-blue-500 p-6 rounded-xl">
+                    <h4 class="text-blue-400 font-black text-xs uppercase tracking-widest mb-2">Problématique</h4>
+                    <p class="text-lg font-bold italic text-white">Comment les réseaux informatique permettent-ils aux équipes de Formule 1 de gérer les courses en temps réel ?</p>
+                </div>
             </div>
         </div>
     </section>
 
     <footer id="contact" class="py-40 px-6 text-center border-t border-white/5 bg-[#050505]">
         <h2 class="big-title mb-20 italic text-gradient" data-aos="zoom-in">Contact</h2>
-        <div class="flex justify-center gap-12 mb-24">
-            <a href="mailto:bibiralid24@gmail.com" class="group">
-                <div class="glass p-12 rounded-full mb-4 group-hover:scale-110 group-hover:bg-pink-500/20 transition duration-500">
-                    <i class="fas fa-envelope fa-2x text-pink-500"></i>
+        
+        <div class="flex flex-col items-center gap-12 mb-24">
+            <div class="flex justify-center gap-12">
+                <div class="group cursor-pointer" onclick="toggleEmailMenu()">
+                    <div class="glass p-12 rounded-full mb-4 group-hover:scale-110 group-hover:bg-pink-500/20 transition duration-500">
+                        <i class="fas fa-envelope fa-2x text-pink-500"></i>
+                    </div>
+                    <span class="text-[10px] font-black uppercase tracking-[0.3em] text-gray-500">Email</span>
                 </div>
-                <span class="text-[10px] font-black uppercase tracking-[0.3em] text-gray-500">Email</span>
-            </a>
+                
+                <a href="https://www.linkedin.com/in/TON-PROFIL" target="_blank" class="group">
+                    <div class="glass p-12 rounded-full mb-4 group-hover:scale-110 group-hover:bg-blue-500/20 transition duration-500">
+                        <i class="fab fa-linkedin-in fa-2x text-blue-500"></i>
+                    </div>
+                    <span class="text-[10px] font-black uppercase tracking-[0.3em] text-gray-500">LinkedIn</span>
+                </a>
+            </div>
+
+            <div id="email-options" class="glass p-8 rounded-[2rem] border-pink-500/30 max-w-md w-full mt-4">
+                <p class="text-pink-500 font-black text-xs mb-4 italic uppercase">bibiralid24@gmail.com</p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=bibiralid24@gmail.com" target="_blank" class="bg-white/5 border border-white/10 p-3 rounded-xl text-[9px] font-bold uppercase hover:bg-pink-500/20 transition">Gmail</a>
+                    <a href="https://outlook.live.com/owa/?path=/mail/action/compose&to=bibiralid24@gmail.com" target="_blank" class="bg-white/5 border border-white/10 p-3 rounded-xl text-[9px] font-bold uppercase hover:bg-pink-500/20 transition">Outlook</a>
+                    <a href="mailto:bibiralid24@gmail.com" class="bg-white/5 border border-white/10 p-3 rounded-xl text-[9px] font-bold uppercase hover:bg-pink-500/20 transition">App Locale</a>
+                </div>
+            </div>
         </div>
+
         <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWppaDlrZXVmbTdtYWg3bWFuZXp4cHpsc3hpbGlxcDYxNzBzYTNiayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT5LMzIK1AdZJ4cYW4/giphy.gif" alt="Homer" class="w-48 h-48 rounded-full mx-auto homer-glow mb-12">
         <p class="text-[9px] font-black uppercase tracking-[1em] text-gray-800">ALID ABIR • 2026</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script> AOS.init({ duration: 1000, once: true }); </script>
+    <script> 
+        AOS.init({ duration: 1000, once: true }); 
+
+        // Fonction pour afficher/cacher le menu email
+        function toggleEmailMenu() {
+            const menu = document.getElementById('email-options');
+            menu.classList.toggle('active');
+            if(menu.classList.contains('active')) {
+                menu.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    </script>
 </body>
 </html>
